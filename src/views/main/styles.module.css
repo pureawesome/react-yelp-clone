@@ -11,6 +11,7 @@
   -o-box-orient: horizontal;
 
   flex-direction: column;
+  flex: 1;
 
   @media (--screen-phone-lg) {
     flex-direction: row;

@@ -38,7 +38,6 @@ export class MapComponent extends React.Component {
             className={styles.map}
             visible={!children || React.Children.count(children) == 0}
             >
-            {/* {this.renderMarkers()} */}
             {this.renderChildren()}
       </Map>
     )
