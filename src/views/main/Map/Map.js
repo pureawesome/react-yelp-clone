@@ -10,6 +10,7 @@ export class MapComponent extends React.Component {
     return this.props.places.map(place => {
       return <Marker key={place.id}
                 name={place.name}
+                place={place}
                 position={place.geometry.location}
                 onClick={this.props.onMarkerClick.bind(this)}
               />
@@ -17,11 +18,26 @@ export class MapComponent extends React.Component {
   }
   renderChildren() {
     const {children} = this.props;
+
+    if (React.Children.count(children) > 0) {
+      return React.Children.map(children, c => {
+        return React.cloneElement(c, this.props, {
+          map: this.props.map,
+          google: this.props.google
+        })
+      })
+    } else {
+      return this.renderMarkers();
+    }
   }
   render() {
+    const {children} = this.props;
+
     return (
       <Map google={this.props.google}
-            className={styles.map}>
+            className={styles.map}
+            visible={!children || React.Children.count(children) == 0}
+            >
             {/* {this.renderMarkers()} */}
             {this.renderChildren()}
       </Map>
