@@ -7,13 +7,14 @@ import styles from './styles.module.css'
 
 describe('<Header />', () => {
   let wrapper;
+
   beforeEach(() => {
     wrapper = shallow(<Header />)
   });
 
-  it('contains a title component with yelp', () => {
+  it('contains a title component with yelper', () => {
     expect(wrapper.find('h1').first().text())
-        .to.equal('yelp clone')
+        .to.equal('Yelp')
   });
 
   it('contains topbar styling', () => {

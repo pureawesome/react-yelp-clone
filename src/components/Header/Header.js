@@ -23,7 +23,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  title: 'yelp clone'
+  title: 'Yelp'
 }
 
 export default Header

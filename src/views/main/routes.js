@@ -3,10 +3,12 @@ import {Route, IndexRoute} from 'react-router'
 
 import Container from './Container'
 import IndexPage from './indexPage/IndexPage'
+import Map from './Map/Map'
 
 export const makeMainRoutes = () => {
   return (
     <Route path="/" component={Container}>
+      <Route path="map" component={Map} />
       {/* Lazy-loading */}
       <Route path="about" getComponent={(location, cb) => {
           require.ensure([], (require) => {
@@ -15,7 +17,7 @@ export const makeMainRoutes = () => {
           });
         }} />
       {/* inline loading */}
-      <IndexRoute component={IndexPage} />
+      {/* <IndexRoute component={IndexPage} /> */}
     </Route>
   )
 }
